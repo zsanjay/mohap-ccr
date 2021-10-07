@@ -1,0 +1,126 @@
+.container{
+    margin: 25px;
+}
+
+.sub-container{
+  background-color: white;
+   border-radius: 20px;
+  padding: 0px 0px 40px 0px;
+  min-height: 100vh;
+}
+
+table {
+    width: 100%;
+  }
+
+  .heading{
+   /* font-size: 40px;  */
+    font-weight: bold;
+    color: #646463;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font:40px "Helvetica";
+  }
+
+  .subHeading{
+    font: 24px Arial, normal;
+    padding-top: 20px;
+    color: #7D7D7A;
+    margin-left: 20px;
+  }
+
+  /* .ticket{
+    font: 20px "Helvetica", bold;
+    color: #6C6967;
+  } */
+
+
+    .mat-header-cell {
+      font-size: 16px;
+    }
+
+    .mat-cell{
+      font: 16px "Helvetica", Regular;
+      text-align: center;
+    }
+
+    ::ng-deep .mat-sort-header-container {
+      justify-content: center;
+    }
+    
+     
+        .tab {
+          overflow: hidden;
+          border: 1px solid #ccc;
+          background-color: #ECE8E8;
+          border-radius: 20px;
+          display: inline-flex;
+           margin-left: 80px;
+           margin-top: 20px;
+           margin-right: 80px; 
+        }
+        
+        /* Style the buttons inside the tab */
+        .tab button {
+          background-color: inherit;
+          float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 5px 110px 5px 110px;
+          transition: 0.3s;
+          font-size: 17px;
+
+        }
+        
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+          background-color: #ddd;
+        }
+        
+        /* Create an active/current tablink class */
+        .tab button.active {
+          background-color:#303AA3;
+        }
+
+       .tab button title.active{
+          color: #F0EDEB;
+        }
+        
+        /* Style the tab content */
+        .tabcontent {
+          display: none;
+          padding: 6px 12px;
+          border: 1px solid #ccc;
+          border-top: none;
+        }
+        
+        .mat-elevation-z8{
+          box-shadow: none;
+        }
+
+    .title{
+      font: 16px "Helvetica" Regular;
+      color: #8C8C8E;
+      font-weight: bold;
+    }
+
+    ::ng-deep .mat-sort-header-content {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      font: 16px "Helvetica";
+  }
+
+  ul {
+    list-style-type: none !important;
+}
+
+.nav {
+  display: inline-flex !important;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+

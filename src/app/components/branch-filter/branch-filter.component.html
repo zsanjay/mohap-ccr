@@ -1,0 +1,15 @@
+<div class="container">
+    <form>
+        <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+        <select id="branch" #branch [(ngModel)]="selectedBranch" name="branch" (change)="onBranchChange(branch.value)">
+        <option *ngFor="let branch of branches" [value]="branch.id">{{branch.name}}</option>
+        </select>
+
+        <select id="sort" #sortSelect [(ngModel)]="selectedSorting" name="sort" (change)="onSortChange(sortSelect.value)">
+        <option *ngFor="let s of sort; let i = index" [value]="i">{{s}}</option>
+        </select>
+
+      </form>
+      
+</div>

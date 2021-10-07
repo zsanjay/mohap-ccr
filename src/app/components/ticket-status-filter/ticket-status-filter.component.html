@@ -1,0 +1,59 @@
+<div class="container">
+    <form>
+        <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+        <select id="branch" #branch [(ngModel)]="selectedBranch" name="branch" (change)="onBranchChange(branch.value)">
+        <option *ngFor="let branch of branches" [value]="branch.id">{{branch.name}}</option>
+        </select>
+
+        <select *ngIf="waitingTab" id="queue" #queue [(ngModel)]="selectedQueueWaiting" name="queue" (change)="onQueueChange(queue.value)">
+          <!-- <option [value]="0">----------- Select Queue Name --------------</option> -->
+        <option *ngFor="let queue of waitingQueues" [ngClass]="{'option-bg-color': queue.waiting > 0 }" [value]="queue.id">{{queue.name}}</option>
+        </select>
+        
+      <select *ngIf="servedTab" id="queue" #queue [(ngModel)]="selectedQueueServed" name="queue" (change)="onQueueChangeServed(queue.value)">
+        <!-- <option [value]="0">----------- Select Queue Name --------------</option> -->
+      <option *ngFor="let queue of servedQueues" [ngClass]="{'option-bg-color': queue.served > 0 }" [value]="queue.id">{{queue.name}}</option>
+      </select>
+
+      <select *ngIf="othersTab" id="queue" #queue [(ngModel)]="selectedQueueOthers" name="queue" (change)="onQueueChangeOthers(queue.value)">
+        <!-- <option [value]="0">----------- Select Queue Name --------------</option> -->
+      <option *ngFor="let queue of othersQueues" [ngClass]="{'option-bg-color': queue.others > 0 }" [value]="queue.id">{{queue.name}}</option>
+      </select>
+
+      </form>
+</div> 
+
+<!-- <div class="container" *ngIf="servedTab">
+  <form>
+      <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+      <select id="branch" #branch [(ngModel)]="selectedBranchServed" name="branch" (change)="onBranchChangeServed(branch.value)">
+      <option *ngFor="let branch of branches" [value]="branch.id">{{branch.name}}</option>
+      </select>
+
+      <select id="queue" #queue [(ngModel)]="selectedQueueServed" name="queue" (change)="onQueueChangeServed(queue.value)">
+        <option [value]="0">----------- Select Queue Name --------------</option>
+      <option *ngFor="let queue of servedQueues" [ngClass]="{'option-bg-color': queue.served > 0 }" [value]="queue.id">{{queue.name}}</option>
+      </select>
+
+    </form>
+    
+</div>
+
+<div class="container" *ngIf="othersTab">
+  <form>
+      <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+      <select id="branch" #branch [(ngModel)]="selectedBranchOthers" name="branch" (change)="onBranchChangeOthers(branch.value)">
+      <option *ngFor="let branch of branches" [value]="branch.id">{{branch.name}}</option>
+      </select>
+
+      <select id="queue" #queue [(ngModel)]="selectedQueueOthers" name="queue" (change)="onQueueChangeOthers(queue.value)">
+        <option [value]="0">----------- Select Queue Name --------------</option>
+      <option *ngFor="let queue of othersQueues" [ngClass]="{'option-bg-color': queue.others > 0 }" [value]="queue.id">{{queue.name}}</option>
+      </select>
+
+    </form>
+    
+</div> -->

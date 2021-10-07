@@ -1,0 +1,27 @@
+#heading li h3 { 
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-weight: bold;
+} 
+
+#heading {
+    list-style: none;
+    padding: 0px 10px 0px 10px;
+}
+
+.mat-progress-bar{
+    border-radius:10px; 
+    height:10px;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: beige;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+    border-radius: 30px;
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 20px;
+}
+

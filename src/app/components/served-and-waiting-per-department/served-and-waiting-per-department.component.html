@@ -1,0 +1,45 @@
+<div class="card-content">
+<mat-card-content *ngFor="let department of servedAndWaitingData">
+  <div >
+	<div id="textbox">
+		<p class="alignleft">{{department.name}}</p>
+	</div>
+	<div class="progress-bar-container">
+		<div class="progress-bar">
+			<mat-progress-bar class="served-bar" mode="determinate" value={{department.served}}></mat-progress-bar>
+		</div>
+		<div class="higher-limit">{{department.served}}</div>
+	</div>
+  <div class="progress-bar-container">
+		<div class="progress-bar">
+			<mat-progress-bar class="waiting-bar" mode="determinate" value={{department.waiting}} ></mat-progress-bar>
+		</div>
+		<div class="higher-limit">{{department.waiting}}</div>
+	</div>
+</div>
+</mat-card-content>
+</div>
+
+
+<!-- <div>
+  <ul id="heading" *ngFor="let department of departments">
+      <li><h3 style="float: left;">{{department.name}}</h3></li>
+
+      <div class=progress-bar-container>
+        <div class=progress-bar>
+          <mat-progress-bar mode="determinate" value={{department.value}}></mat-progress-bar>
+        </div>
+        <div class=higher-limit>{{department.value}}</div>
+      </div>
+
+     <div style="margin-bottom: 4px;">
+    <mat-progress-bar mode="determinate" color="primary" value={{department.value}}></mat-progress-bar>
+    <span class="value">{{department.value}}</span>
+      </div>
+    <div>
+    <mat-progress-bar mode="determinate" color="accent" value={{department.value2}}></mat-progress-bar>
+    <span class="value">{{department.value2}}</span>
+  </div> 
+
+  </ul>
+  </div> -->

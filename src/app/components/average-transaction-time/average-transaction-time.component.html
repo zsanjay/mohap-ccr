@@ -1,0 +1,25 @@
+<div class="card-content">
+<div *ngIf="dataAvailable == true">
+  <div>
+    <h3 class="card-title">
+       {{getAverageTime(avgTransData.time)}} <span class="minute">{{'dashboard.min' | translate}}</span>
+   </h3> 
+ </div>
+ <div style="display: flex; margin-left: 10px;">
+  <a [routerLink]="[ '/' , { outlets: { primary: ['avg-transaction-time' , '1' ], secondRouter: ['filter' , true] } }]"  style="text-decoration: none;"> <span class="material-icons arrow_u">
+    arrow_upward
+    </span><i class="show_high">{{'dashboard.show_high' | translate}}</i></a>
+
+  <a [routerLink]="[ '/' , { outlets: { primary: ['avg-transaction-time' , '0' ], secondRouter: ['filter' , true ] } }]" style="text-decoration: none;"> <span class="material-icons arrow_d">
+    arrow_downward
+    </span><i class="show_low">{{'dashboard.show_low' | translate}}</i></a>
+  </div>
+</div>
+<div>
+<ul id="heading" *ngFor="let item of avgTransData.top5">
+  <li ><div style="clear: both;"><h3 tooltip={{item.name}} style="float: left;"><a [routerLink]="[ '/' , { outlets: { primary: ['avg-transaction-time' , '1' , item.id , item.name ], secondRouter: ['branch-filter' , item.id , branchIds ] } }]" style="text-decoration: none; color: black;">{{item.name | slice:0:25}}</a></h3><h3 style="float: right;">{{getAverageTime(item.value)}}</h3></div>
+  <mat-progress-bar [appProgressBarColor]="(item.value)" [avgTime]="avgTransData.time" mode="determinate"  value={{item.value}}></mat-progress-bar>
+</li>
+</ul>
+</div>
+</div>

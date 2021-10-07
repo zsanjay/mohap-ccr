@@ -1,0 +1,43 @@
+
+<div class="container">
+
+    <div class="heading">
+    <a [routerLink]="[ '/' , { outlets: { primary: ['emirates'], secondRouter: ['emirates-label'] } }]" ><img [src]="backImage" width="50" height="50"/></a><span style="margin-left: 15px;">{{ 'dashboard.emirates-name' | translate }}</span>
+    </div>
+    <div class="sub-container">
+      <div class="subHeading"><span>{{ 'dashboard.branches' | translate }}</span></div>
+      <div class="mat-table-container">
+      <table mat-table class="mat-elevation-z8" matSort (matSortChange)="sortData($event)" aria-label="Elements" [dataSource]="dataSource">
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.name' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><a [routerLink]="" style="text-decoration: none;"><span [appBranchTitleColor]="getColor(i + 1)" title={{getFirstLetter(row.name)}}></span><span tooltip={{row.name}} class="branchName">{{row.name}}</span></a></td>
+          </ng-container>
+      
+          <!-- Served Time Column -->
+          <ng-container matColumnDef="served">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.served' | translate}}</th>
+            <td mat-cell *matCellDef="let row"><span>{{row.served}}</span></td>
+          </ng-container>
+      
+          <!-- Waiting Customers Column -->
+          <ng-container matColumnDef="waiting">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting' | translate}}</th>
+            <td mat-cell *matCellDef="let row"><span>{{row.waiting}}</span></td>
+          </ng-container>
+
+          <!-- NoShow Column -->
+          <ng-container matColumnDef="noshows">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.no_shows' | translate}}</th>
+            <td mat-cell *matCellDef="let row"><span>{{row.noShow}}</span></td>
+          </ng-container>
+       
+         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+        </table>
+        </div>
+    </div>
+  
+  </div>
+    
+     

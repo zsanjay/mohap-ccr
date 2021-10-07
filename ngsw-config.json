@@ -1,0 +1,58 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+    "name":"api-perform",
+    "urls":[
+      "http://mh-in-qappsrv.moh.ae:8080/qsystem/rest/entrypoint/account" ,
+       "http://mh-in-qappsrv.moh.ae:8080/qsystem/rest/entrypoint/branches",
+        "http://mh-in-qappsrv.moh.ae:8080/qsystem/rest/config/branchGroups"
+      ],
+    "cacheConfig": {
+    "strategy": "performance",
+    "maxSize": 100,
+    "maxAge": "1h",
+    "timeout": "5s"
+    }},
+    {
+    "name":"api-fresh",
+    "urls":[
+      "http://mh-in-qappsrv.moh.ae:8080/mohap-ccr-api-0.0.1/api/allData" , 
+      "http://mh-in-qappsrv.moh.ae:8080/mohap-ccr-api-0.0.1/api/branchData" , 
+      "http://mh-in-qappsrv.moh.ae:8080/mohap-ccr-api-0.0.1/api/ServedWaitingNoShow"
+     ],
+    "cacheConfig": {
+    "strategy": "freshness",
+    "maxSize": 100,
+    "maxAge": "1h",
+    "timeout": "5s"
+    }}
+    ]
+}

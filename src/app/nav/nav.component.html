@@ -1,0 +1,33 @@
+
+<mat-sidenav-container class="sidenav-container mat-app-background" [ngClass]="{'dark-theme-mode':!isDarkTheme}">
+<mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"> 
+    <mat-toolbar class="toolbarnav"><img [src]="mohapLogo" width="200px" height="150px"/></mat-toolbar>
+    <mat-toolbar style="margin-left: 30px;"><img [src]="ehsLogo" width="150px" height="50px"/></mat-toolbar>
+    <br/>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/']"> <p title={{getFirstLetter(menuItems[0])}} data-letters> {{'dashboard.dashboard' | translate | titlecase}}</p>  </a>
+      <a mat-list-item [routerLink]="[ '/' , { outlets: { primary: ['branches'], secondRouter: ['filter' , 'false' ] } }]"> <p title={{getFirstLetter(menuItems[1])}} data-letters> {{'dashboard.branches' | translate | titlecase}}</p>  </a>
+      <a mat-list-item [routerLink]="['/', { outlets: { primary : ['counter-status'], secondRouter : ['counter-status-hospital-filter'] }}]"> <p title={{getFirstLetter(menuItems[2])}} data-letters> {{'dashboard.counters' | translate | titlecase}}</p>  </a>
+      <a mat-list-item [routerLink]="[ '/' , { outlets: { primary: ['ticket-status' ], secondRouter: ['counter-status-hospital-filter'] } }]"> <p title={{getFirstLetter(menuItems[3])}} data-letters> {{'dashboard.ticket_status' | translate | titlecase}}</p>  </a>
+      <a mat-list-item [routerLink]="[ '/' , { outlets: { primary: ['emirates'], secondRouter: ['emirates-label' ] } }]"> <p title={{getFirstLetter(menuItems[4])}} data-letters> {{'dashboard.emirates' | translate | titlecase}}</p>  </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style=" width: 75%;
+    background-color:#E5E9F0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;">
+    <router-outlet></router-outlet>
+  </div>
+  <div style="width: 25%;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;"> 
+    <router-outlet name='secondRouter'></router-outlet>
+  </div> 
+  </mat-sidenav-content> 
+
+</mat-sidenav-container>

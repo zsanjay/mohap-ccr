@@ -1,0 +1,62 @@
+
+  <table mat-table class="mat-elevation-z8" matSort (matSortChange)="sortData($event)" aria-label="Elements" *ngIf="isAvailable">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.name' | translate}}</th>
+      <td mat-cell *matCellDef="let row; let i = index"><p [appBranchTitleColor]="getColor(i + 1)" title={{getFirstLetter(row.name)}}><span class="branchName" tooltip={{row.name}}>{{row.name | slice:0:20}}</span></p></td>
+    </ng-container>
+    <!-- Served Column -->
+    <ng-container matColumnDef="served">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.served' | translate}}</th>
+      <td mat-cell *matCellDef="let row">{{row.served}}</td>
+    </ng-container>
+
+    <!-- Waiting Column -->
+    <ng-container matColumnDef="waiting">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting' | translate}}</th>
+      <td mat-cell *matCellDef="let row">{{row.waiting}}</td>
+    </ng-container>
+
+    <!-- Waiting Time Column -->
+    <ng-container matColumnDef="wtTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting_time' | translate}}</th>
+      <td mat-cell *matCellDef="let row"><span [ngStyle]="row.wtTime > 0 ? {'color': 'red'} : {'color': 'limegreen'}">{{getWtTime(row.wtTime)}} Min</span></td>
+    </ng-container>
+
+    <!-- Transaction Time Column -->
+    <ng-container matColumnDef="trtTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.trans_time' | translate}}</th>
+      <td mat-cell *matCellDef="let row"><span [ngStyle]="getTimeColor(row.trtTime)">{{getWtTime(row.trtTime)}} Min</span></td>
+    </ng-container>
+
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+  </table>
+
+  <table mat-table class="mat-elevation-z8" matSort aria-label="Elements" *ngIf="!isAvailable">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.name' | translate }}</th>
+    </ng-container>
+    <!-- Served Column -->
+    <ng-container matColumnDef="served">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.served' | translate}}</th>
+    </ng-container>
+
+    <!-- Waiting Column -->
+    <ng-container matColumnDef="waiting">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting' | translate}}</th>
+    </ng-container>
+
+    <!-- Waiting Time Column -->
+    <ng-container matColumnDef="wtTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting_time' | translate}}</th>
+    </ng-container>
+
+    <!-- Transaction Time Column -->
+    <ng-container matColumnDef="trtTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.trans_time' | translate}}</th>
+    </ng-container>
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  </table>
+  

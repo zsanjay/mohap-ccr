@@ -1,0 +1,31 @@
+<div><canvas id="customerStatus"></canvas>
+    <div *ngIf="dataAvailable == true" class="card-body row" style="display: inline-flex;
+    justify-content: center;">
+        <div class="col border-line">
+          <div class="row justify-content-center">
+            <span class="title">{{'dashboard.served' | translate}}</span>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col"><a [routerLink]="[ '/' , { outlets: { primary: ['ticket-status'], secondRouter: ['counter-status-hospital-filter'] } }]" style="text-decoration: none;"><span style="color: #5B4DA6; font-size: 1.3rem; font-weight: bold;">{{customerData.served}}</span></a></div>
+          </div>
+        </div>
+      
+        <div class="col border-line">
+          <div class="row justify-content-center">
+            <span class="title">{{'dashboard.waiting' | translate}}</span>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col"><a [routerLink]="[ '/' , { outlets: { primary: ['ticket-status'], secondRouter: ['counter-status-hospital-filter'] } }]" style="text-decoration: none;"><span style="color: #4A96E0; font-size: 1.3rem; font-weight: bold;">{{customerData.waiting}}</span></a></div>
+          </div>
+        </div>
+
+        <div class="col">
+            <div class="row justify-content-center">
+              <span class="title">{{'dashboard.no_show' | translate}}</span>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col"><a [routerLink]="[ '/' , { outlets: { primary: ['ticket-status'], secondRouter: ['counter-status-hospital-filter'] } }]" style="text-decoration: none;"><span style="color:#C8C8C8; font-size: 1.3rem; font-weight: bold;">{{customerData.noShows}}</span></a></div>
+            </div>
+          </div>
+      </div>
+    </div>

@@ -1,0 +1,29 @@
+<div class="container">
+    <form>
+        <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+        <select id="region" #region [(ngModel)]="selectedRegion" name="region" (change)="onRegionChange(region.value)">
+            <option *ngFor="let region of regions" [value]="region.id">{{region.name}}</option>
+        </select>
+
+        <select id="branch" #branch [(ngModel)]="selectedBranch" name="branch" (change)="onBranchChange(branch.value)">
+            <option [value]="0">All Hospital</option>
+            <option *ngFor="let branch of branches" [value]="branch.id">{{branch.name}}</option>
+        </select>
+
+    </form>
+
+    <div class="container-2">
+        <div class="btn-holder">
+        <button mat-raised-button class="served">Served</button>
+        <button mat-raised-button tooltip="*Others comes under ticket removed by customer/ end by publish force logout etc" class="waiting">Others</button>
+        <button mat-raised-button class="no-shows">No Shows</button>
+        </div>
+        <div class="text">*Others comes under ticket removed by</div> 
+        <div class="text">customer/ end by publish force logout etc</div>
+    </div>
+
+</div>
+
+
+

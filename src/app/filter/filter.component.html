@@ -1,0 +1,15 @@
+<div class="container">
+    <form>
+        <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+        <select id="region" #region [(ngModel)]="selectedRegion" name="region" (change)="onRegionChange(region.value)">
+        <option *ngFor="let region of regions" [value]="region.id">{{region.name}}</option>
+        </select>
+
+        <select *ngIf="showSort" id="sort" #sortSelect [(ngModel)]="selectedSorting" name="sort" (change)="onSortChange(sortSelect.value)">
+        <option *ngFor="let s of sort; let i = index" [value]="i">{{s}}</option>
+        </select>
+
+      </form>
+      
+</div>

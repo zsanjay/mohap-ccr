@@ -1,0 +1,35 @@
+.example-card {
+  /* max-width: 200px;
+  margin-top: 40px;
+  margin-left: 50px;
+  border-radius: 20px;
+  margin-right: 19px; */
+  border: 0.1px solid gray;
+
+   /*  not needed styles to reflect it */ 
+   margin-top: 30px;
+  margin-left: 50px;
+   padding: 10px;
+   max-width: 200px;
+   border-radius: 20px;
+   /* needed styles below */
+   display: block;
+   justify-content: space-between;
+}
+
+.smiley{
+  display: block;
+  height: 70px;
+    width: 70px;
+    margin-left: 65px;
+}
+
+.mat-card{
+  padding: 2px;
+  text-align: center;
+}
+
+mat-card::ng-deep.mat-card-header-text {
+  width: 100%;
+}
+

@@ -1,0 +1,297 @@
+  <div class="container">
+
+  <div class="heading">
+      <a [routerLink]="['/']"><img [src]="backImage" width="50" height="50"/></a><span style="margin-left: 15px;">{{ 'dashboard.peak-data' | translate }}</span>
+    </div>
+  <div class="sub-container">
+    <div class="card-container">
+      <div class="card-div">
+        <app-peak-hour-card [title]="peakDate" [className]="peakdate">
+            <div>
+                <h1>{{ peakDateValue | date:'EEE d MMM' | dateSuffix }}</h1>
+            </div>
+        </app-peak-hour-card>
+      </div>
+      <div class="card-div">
+        <app-peak-hour-card [title]="peakTime" [className]="peakcard">
+            <div>
+                <h1>{{time}}</h1>
+            </div>
+        </app-peak-hour-card>
+      </div>
+      <div class="card-div">
+        <app-peak-hour-card [title]="peakTimeServed" [className]="peakcard">
+            <div>
+                <h1>{{maxServed}}</h1>
+            </div>
+        </app-peak-hour-card>
+      </div>
+    </div>
+    <div class="table-section">
+    <table mat-table class="mat-elevation-z8" aria-label="Elements" [dataSource]="dataSource">
+        <!-- Name Column -->
+        <ng-container matColumnDef="day" [sticky]="true">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell class="days" *matCellDef="let row; let i = index"><a [routerLink]="" style="text-decoration: none;"><span>{{row.day}}</span></a></td>
+        </ng-container>
+    
+        <ng-container matColumnDef="one-am" [sticky]="true">
+            <th class="mat-col-levelDefault" mat-header-cell *matHeaderCellDef >{{'dashboard.one-am' | translate}}</th>
+            <td class="mat-col-levelDefault" mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[0].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list></span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="two-am">
+            <th mat-header-cell *matHeaderCellDef >{{'dashboard.two-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[1].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="three-am">
+            <th mat-header-cell *matHeaderCellDef >{{'dashboard.three-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] ="getClassName(row.data[2].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="four-am">
+            <th mat-header-cell *matHeaderCellDef >{{'dashboard.four-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[3].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="five-am">
+            <th mat-header-cell *matHeaderCellDef >{{'dashboard.five-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[4].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="six-am">
+            <th mat-header-cell *matHeaderCellDef >{{'dashboard.six-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[5].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container> 
+  
+            <ng-container matColumnDef="seven-am">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.seven-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[6].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="eight-am">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.eight-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[7].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="nine-am">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.nine-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[8].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="ten-am">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.ten-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[9].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="eleven-am">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.eleven-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[10].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+          
+          <ng-container matColumnDef="twelve-am">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.twelve-am' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+                <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[11].served , i)"
+                    colspan="1"
+                    rowspan="1"
+                    >
+                </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+           <ng-container matColumnDef="one-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.one-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[12].served , i)" 
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="two-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.two-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[13].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="three-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.three-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[14].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="four-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.four-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[15].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="five-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.five-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[16].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container> 
+  
+            <ng-container matColumnDef="six-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.six-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[17].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="seven-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.seven-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[18].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="eight-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.eight-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[19].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="nine-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.nine-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[20].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="ten-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.ten-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[21].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>
+  
+          <ng-container matColumnDef="eleven-pm">
+            <th mat-header-cell *matHeaderCellDef>{{'dashboard.eleven-pm' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><span>
+              <mat-grid-list cols="1" rowHeight="40px"><mat-grid-tile [ngClass] = "getClassName(row.data[22].served , i)"
+                colspan="1"
+                rowspan="1"
+                >
+            </mat-grid-tile></mat-grid-list>
+            </span></td>
+          </ng-container>  
+    
+       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+      </table>
+      </div>
+  </div>
+</div>

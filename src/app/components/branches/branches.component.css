@@ -1,0 +1,82 @@
+table {
+  width: 100%;
+  margin-top: -10px;
+}
+
+.mat-elevation-z8{
+  box-shadow: none;
+}
+
+.data-letters-blue:before {
+  content:attr(title);
+ display:block; 
+  font-size: 1.0em;
+    height: 25px;
+    width: 28px;
+    line-height: 1.8em;
+    border-radius: 100%; 
+    background : #47ACFA;
+    margin-right: 5px;
+    color: darkblue;
+    float: left;
+  
+  }
+
+  .data-letters-purple:before {
+      content:attr(title);
+     display:block; 
+      font-size: 1.0em;
+        height: 25px;
+        width: 28px;
+        line-height: 1.8em;
+        border-radius: 100%; 
+        background : #8C7CC3;
+        margin-right: 5px;
+        color: darkblue;
+        float: left;
+      
+      }
+
+
+  .data-letters-green:before {
+          content:attr(title);
+         display:block; 
+          font-size: 1.0em;
+            height: 25px;
+            width: 28px;
+            line-height: 1.8em;
+            border-radius: 100%; 
+            background : #6BBE2A;
+            margin-right: 5px;
+            color: darkblue;
+            float: left;
+          
+  }
+
+  .data-letters-orange:before {
+        content:attr(title);
+        display:block; 
+        font-size: 1.0em;
+        height: 25px;
+        width: 25px;
+        line-height: 1.8em;
+        border-radius: 100%; 
+        background :#FFBE23;
+        margin-right: 5px;
+        color: darkblue;
+        float: left;        
+  }
+
+  .branchName{
+    font: 14px "Helvetica", Arial;
+    /* float: left; */
+    display: flex;
+    font-weight: 500;
+    color: gray;
+  }
+
+  ::ng-deep .mat-sort-header-container {
+    display:flex;
+    justify-content:center;
+  }
+

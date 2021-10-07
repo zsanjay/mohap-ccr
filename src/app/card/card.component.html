@@ -1,0 +1,40 @@
+<mat-card class="dashboard-card"> 
+    <mat-card-header>
+        <mat-card-title>
+            {{title}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content" [ngClass]="{'dashboard-card-display' : displayContents}">
+        <ng-content></ng-content>
+    </mat-card-content>
+    
+    <div *ngIf="viewAll" class="view-all">
+        <div *ngIf="viewRect" class="rect-div">
+            <div style="display: inline-flex;">
+            <div class="rect-served">
+            </div>
+            <label class="lbl-sw">Served</label>
+            </div>
+            <div style="display: inline-flex;">
+            <div class="rect-waiting">
+            </div>
+            <label class="lbl-sw">Waiting</label>
+            </div>
+        </div>
+        <div *ngIf="viewPeak" class="rect-div">
+            <div style="display: inline-flex;">
+            <div class="peak-served">
+            </div>
+            <label class="lbl-sw">Served</label>
+            </div>
+            <div style="display: inline-flex;">
+            <div class="peak-highest-served">
+            </div>
+            <label class="lbl-sw">Highest Served</label>
+            </div>
+        </div>
+        <a *ngIf="activeLink == 'served'" [routerLink]="[ '/' , { outlets: { primary: ['served-and-waiting-dept' , 'Departments'], secondRouter: ['served-and-waiting-dept-filter'] } }]" class="view-all-text">{{'dashboard.view_all' | translate}}</a>
+        <a *ngIf="activeLink == 'branches'" [routerLink]="[ '/' , { outlets: { primary: ['branches'], secondRouter: ['filter' , 'false' ] } }]" class="view-all-text">{{'dashboard.view_all' | translate}}</a>
+        <a *ngIf="activeLink == 'peak'" [routerLink]="[ '/' , { outlets: { primary: ['peak-data-hours'], secondRouter: ['peak-data-hours-filter'] } }]" class="view-all-text">{{'dashboard.view_all' | translate}}</a>
+    </div>
+ </mat-card>

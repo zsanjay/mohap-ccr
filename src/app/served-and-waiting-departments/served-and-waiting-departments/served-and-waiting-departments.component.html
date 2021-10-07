@@ -1,0 +1,238 @@
+
+<div class="container">
+
+  <div class="heading" *ngIf="heading === 'Departments'">
+  <a [routerLink]="['/']"><img [src]="backImage" width="50" height="50"/></a><span style="margin-left: 15px;">{{ 'dashboard.departments' | translate }}</span>
+  </div>
+  <div class="heading" *ngIf="heading === 'TicketStatus'">
+    <a [routerLink]="['/' , { outlets: { primary: ['ticket-status'], secondRouter: ['counter-status-hospital-filter'] } }]"><img [src]="backImage" width="50" height="50"/></a><span style="margin-left: 15px;">{{ 'dashboard.ticket_status' | translate }}</span>
+    </div>
+  <div class="sub-container">
+    <div class="subHeading"><span>{{ 'dashboard.departments' | translate }}</span></div>
+    <div #tableContent class="mat-table-container">
+    <table  mat-table class="mat-elevation-z8" aria-label="Elements" [dataSource]="data" *ngIf="!isEmpty">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name" [sticky]="true">
+          <th mat-header-cell *matHeaderCellDef >{{'dashboard.name' | translate}}</th>
+          <td mat-cell  *matCellDef="let row; let i = index"><a [routerLink]="['/', { outlets: { primary: ['counter-status' , selectedBranchId , row.name , 'department' ], secondRouter: ['counter-status-filter' , selectedBranchId  , false , branchId] } }]" style="text-decoration: none; display: flex;"><span [appBranchTitleColor]="getColor(i + 1)" title={{getFirstLetter(row.name)}}></span><span tooltip={{row.name}} class="branchName">{{row.name | slice:0:20}}</span></a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="left-arrow"  [sticky]="true">
+          <th class="mat-col-levelDefault" mat-header-cell *matHeaderCellDef><a (click)="scrollLeft()"><img [src]="leftArrow"/></a></th>
+          <td class="mat-col-levelDefault" mat-cell *matCellDef="let row"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="one">
+          <th mat-header-cell *matHeaderCellDef >{{'dashboard.one' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'one_'+i" [data]=row.data[0]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="two">
+          <th mat-header-cell *matHeaderCellDef >{{'dashboard.two' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'two_'+i" [data]=row.data[1]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="three">
+          <th mat-header-cell *matHeaderCellDef >{{'dashboard.three' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'three_'+i" [data]=row.data[2]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="four">
+          <th mat-header-cell *matHeaderCellDef >{{'dashboard.four' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'four_'+i" [data]=row.data[3]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="five">
+          <th mat-header-cell *matHeaderCellDef >{{'dashboard.five' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'five_'+i" [data]=row.data[4]></app-dept-chart></span></td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="six">
+          <th mat-header-cell *matHeaderCellDef >{{'dashboard.six' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'six_'+i" [data]=row.data[5]></app-dept-chart></span></td>
+        </ng-container> 
+
+          <ng-container matColumnDef="seven">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.seven' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'seven_'+i" [data]=row.data[6]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="eight">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.eight' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'eight_'+i" [data]=row.data[7]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="nine">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.nine' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'nine_'+i" [data]=row.data[8]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="ten">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.ten' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'ten_'+i" [data]=row.data[9]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="eleven">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.eleven' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'eleven_'+i" [data]=row.data[10]></app-dept-chart></span></td>
+        </ng-container>
+        
+        <ng-container matColumnDef="twelve">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.twelve' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'twelve_'+i" [data]=row.data[11]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="thirteen">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.thirteen' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'thirteen_'+i" [data]=row.data[12]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="fourteen">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.fourteen' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'fourteen_'+i" [data]=row.data[13]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="fifteen">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.fifteen' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'fifteen_'+i" [data]=row.data[14]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="sixteen">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.sixteen' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'sixteen_'+i" [data]=row.data[15]></app-dept-chart></span></td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="seventeen">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.seventeen' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'seventeen_'+i" [data]=row.data[16]></app-dept-chart></span></td>
+        </ng-container> 
+
+          <ng-container matColumnDef="eighteen">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.eighteen' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'eighteen_'+i" [data]=row.data[17]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="nineteen">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.nineteen' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'nineteen_'+i" [data]=row.data[18]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="twenty">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.twenty' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'twenty_'+i" [data]=row.data[19]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="twenty-one">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.twenty-one' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'twenty-one_'+i" [data]=row.data[20]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="twenty-two">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.twenty-two' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'twenty-two_'+i" [data]=row.data[21]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="twenty-three">
+          <th mat-header-cell *matHeaderCellDef>{{'dashboard.twenty-three' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'twenty-three_'+i" [data]=row.data[22]></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="right-arrow" [stickyEnd]="true">
+          <th mat-header-cell *matHeaderCellDef><a (click)="scrollRight()"><img [src]="rightArrow"/></a></th>
+          <td mat-cell *matCellDef="let row"><span></span></td>
+        </ng-container>
+     
+       <tr mat-header-row *matHeaderRowDef="getDisplayedColumns(); sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns: getDisplayedColumns();"></tr> 
+        
+      </table>
+
+
+ 
+    <!--  <table  mat-table class="mat-elevation-z8" matSort (matSortChange)="sortData($event)" aria-label="Elements" [dataSource]="data" *ngIf="isEmpty">
+        
+        <ng-container matColumnDef="name" [sticky]="true">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.name' | translate}}</th>
+          <td mat-cell  *matCellDef="let row; let i = index"><a [routerLink]="['/']" style="text-decoration: none; display: flex;"><span [appBranchTitleColor]="getColor(i + 1)" title={{getFirstLetter(row.name)}}></span><span tooltip={{row.name}} class="branchName">{{row.name | slice:0:20}}</span></a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="left-arrow"  [sticky]="true">
+          <th class="mat-col-levelDefault" mat-header-cell *matHeaderCellDef><a (click)="scrollLeft()"><img [src]="leftArrow"/></a></th>
+          <td class="mat-col-levelDefault" mat-cell *matCellDef="let row"></td>
+        </ng-container>
+
+        <ng-container matColumnDef="one">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.one' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'one_'+i" ></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="two">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.two' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'two_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="three">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.three' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'three_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="four">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.four' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'four_'+i" ></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="five">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.five' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'five_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="six">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.six' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'six_'+i"></app-dept-chart></span></td>
+        </ng-container> 
+
+          <ng-container matColumnDef="seven">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.seven' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'seven_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="eight">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.eight' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'eight_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="nine">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.nine' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'nine_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="ten">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.ten' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'ten_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="eleven">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.eleven' | translate}}</th>
+          <td mat-cell *matCellDef="let row; let i = index"><span><app-dept-chart [divId]="'eleven_'+i"></app-dept-chart></span></td>
+        </ng-container>
+
+        <ng-container matColumnDef="right-arrow" [stickyEnd]="true">
+          <th mat-header-cell *matHeaderCellDef><a (click)="scrollRight()"><img [src]="rightArrow"/></a></th>
+          <td mat-cell *matCellDef="let row"><span></span></td>
+        </ng-container>
+     
+       <tr mat-header-row *matHeaderRowDef="getDisplayedColumns();"></tr>
+        <tr mat-row *matRowDef="let row; columns: getDisplayedColumns();"></tr> 
+        
+      </table> -->
+      </div>
+      <mat-paginator [length]="length" [pageSize]="pageSize" (page)="getDepartmentsData($event)"></mat-paginator>
+      <!-- [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons -->
+  </div>
+
+</div>
+  
+   

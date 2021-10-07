@@ -1,0 +1,61 @@
+
+<div class="container">
+
+    <div class="heading">
+      <span style="margin-left: 15px;">{{ 'dashboard.counter_status' | translate }}</span>
+    </div>
+    <div class="sub-container">
+       <div class="subHeading">
+         <div style="float: left;">
+         <span>{{ 'dashboard.branches' | translate }}</span>
+        </div>
+        <div style="float: right; margin-right: 40px;">
+          <span>
+            <button mat-mini-fab color="primary" (click)="onPrintPage()">
+              <mat-icon>print</mat-icon>
+            </button>
+          </span>
+        </div>
+        <div style="float: right; margin-right:20px">
+          <span>
+            <button mat-mini-fab (click)="onPrint()">
+              <mat-icon>import_export</mat-icon>
+            </button>
+          </span>
+        </div>
+        </div>
+        <div class="mat-table-container">
+      <table id="cs-hospital" mat-table class="mat-elevation-z8" matSort (matSortChange)="sortData($event)" aria-label="Elements" [dataSource]="dataSource">
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.name' | translate}}</th>
+            <td mat-cell *matCellDef="let row; let i = index"><a [routerLink]="['/' , { outlets: { primary: ['counter-status' , row.id , row.name ,'counter' ], secondRouter: ['counter-status-filter' , row.id , true , branchIds] } }]" style="text-decoration: none;"><span [appBranchTitleColor]="getColor(i + 1)" title={{getFirstLetter(row.name)}}><span tooltip={{row.name}} class="branchName">{{row.name}}</span></span></a></td>
+          </ng-container>
+
+          <!-- Total Counters Column -->
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.total-counters' | translate}}</th>
+            <td mat-cell *matCellDef="let row"><span>{{row.total}}</span></td>
+          </ng-container>
+      
+          <!-- Open Counters Column -->
+          <ng-container matColumnDef="open">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.open-counters' | translate}}</th>
+            <td mat-cell *matCellDef="let row"><span>{{row.open}}</span></td>
+          </ng-container>
+
+          <!-- Closed Counters Column -->
+          <ng-container matColumnDef="closed">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.closed-counters' | translate}}</th>
+            <td mat-cell *matCellDef="let row"><span>{{row.closed}}</span></td>
+          </ng-container>
+      
+         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> 
+        </table>
+        </div>
+    </div>
+  
+  </div>
+    
+     

@@ -1,0 +1,150 @@
+.container{
+    margin: 25px;
+}
+
+.sub-container{
+  background-color: white;
+   border-radius: 20px;
+  padding: 20px 0px 30px 0px;
+}
+
+table {
+    width: 100%;
+  }
+
+  img{
+    vertical-align: middle;
+  }
+  span{
+    vertical-align: middle;
+  }
+
+
+
+  .heading{
+  /* font-size: 40px; 
+    font-weight: bold;*/
+    color: #646463;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font:40px "Helvetica";
+  }
+
+  .branchName{
+    font: 16px "Helvetica", bold;
+    color: #7B7B7D;
+    display: flex;
+    margin-top: 6px;
+  }
+
+  .data-letters-blue:before {
+    content:attr(title);
+   display:block; 
+   font-size: 1.2em;
+    height: 30px;
+    width: 35px;
+      line-height: 1.8em;
+      border-radius: 100%; 
+      background : #47ACFA;
+      text-align: center;
+      font-weight: 500;
+      margin-right: 14px;
+      color: darkblue;
+      float: left;
+    
+    }
+  
+    .data-letters-purple:before {
+        content:attr(title);
+       display:block; 
+       font-size: 1.2em;
+       height: 30px;
+       width: 35px;
+          line-height: 1.8em;
+          border-radius: 100%; 
+          background : #8C7CC3;
+          text-align: center;
+          font-weight: 500;
+          margin-right: 14px;
+          color: darkblue;
+          float: left;
+        
+        }
+  
+  
+    .data-letters-green:before {
+            content:attr(title);
+           display:block; 
+           font-size: 1.2em;
+           height: 30px;
+            width: 35px;
+              line-height: 1.8em;
+              border-radius: 100%; 
+              background : #6BBE2A;
+              text-align: center;
+              font-weight: 500;
+              margin-right: 14px;
+              color: darkblue;
+              float: left;
+            
+    }
+  
+    .data-letters-orange:before {
+          content:attr(title);
+          display:block; 
+          font-size: 1.2em;
+          height: 30px;
+          width: 35px;
+          line-height: 1.8em;
+          border-radius: 100%; 
+          background : #FFBE23;
+          text-align: center;
+          font-weight: 500;
+          margin-right: 14px;
+          color: darkblue;
+          float: left;        
+    }
+
+    .mat-elevation-z8{
+      box-shadow: none;
+    }
+
+    .mat-header-cell {
+      font-size: 16px;
+    }
+
+    .mat-cell{
+      font: 15px "Helvetica", Arial;
+      text-align: center;
+    }
+
+    .subHeading{
+      font: 24px Arial, normal;
+      padding-top: 15px;
+      color: #7D7D7A;
+      margin-left: 20px;
+    }
+
+    ::ng-deep .mat-sort-header-container {
+      justify-content: center;
+    }
+
+    @media print {
+
+      .mat-drawer-content {
+        height: 100% !important;
+        position: absolute !important;
+        width: 100% !important;
+      }
+      .mat-drawer-container {
+        overflow: inherit !important;
+        height: 100% !important;
+        position: absolute !important;
+        width: 100% !important;
+      }
+
+      mat-sidenav-container {
+        overflow: inherit !important;
+      }
+    }
+    

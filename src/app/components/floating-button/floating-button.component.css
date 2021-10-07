@@ -1,0 +1,21 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+.menu{
+      background: black;
+      margin-right: 68px;
+      margin-top: -44px;
+      overflow: hidden;
+  }
+
+  .material-icons.md-36 { font-size: 36px; }
+
+  .float-menu{
+    background: lightgray;
+  }
+
+  .mat-menu-content {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}

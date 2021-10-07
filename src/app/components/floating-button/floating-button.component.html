@@ -1,0 +1,34 @@
+
+
+
+  <button class="mdc-fab mdc-fab--extended" [matMenuTriggerFor]="menu">
+    <div class="mdc-fab__ripple"></div>
+    <span class="material-icons md-36 md-dark">
+        settings_applications
+        </span>
+  </button>
+
+  <mat-menu #menu="matMenu"  [overlapTrigger]="false" yPosition="below" xPosition="before" class="float-menu">
+       
+    <mat-list role="list">
+      <h3 mat-subheader>{{'dashboard.choose_mode' | translate}}</h3>
+      <mat-list-item role="listitem">
+        <div>
+          <mat-radio-group aria-label="Choose Mode">
+            <mat-radio-button color="primary" [checked]="checkedMode" (click)="onModeChanged()" value="Light">{{'dashboard.light' | translate}}</mat-radio-button>
+            <mat-radio-button color="primary" [checked]="!checkedMode" (click)="onModeChanged()" value="Dark">{{'dashboard.dark' | translate}}</mat-radio-button>
+          </mat-radio-group> 
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <h3 mat-subheader>{{'dashboard.choose_lang' | translate}}</h3>
+      <mat-list-item role="listitem">
+        <div>
+          <mat-radio-group aria-label="Choose Language">
+            <mat-radio-button color="primary" [checked]="langMode" (click)="onLangChanged('en')" value="en">{{'dashboard.en' | translate}}</mat-radio-button>
+            <mat-radio-button color="primary" [checked]="!langMode" (click)="onLangChanged('ar')" value="ar">{{'dashboard.ar' | translate}}</mat-radio-button>
+          </mat-radio-group> 
+        </div>
+      </mat-list-item>
+      </mat-list>
+  </mat-menu>

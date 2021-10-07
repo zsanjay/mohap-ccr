@@ -1,0 +1,28 @@
+<mat-card class="example-card mat-app-background" [ngClass]="{'dark-theme-mode':!isDarkTheme}">
+  <mat-card-header>
+    <mat-card-title>{{'dashboard.counter_status' | translate}}</mat-card-title>
+    </mat-card-header>
+  <mat-card-content>
+    <app-counter-status></app-counter-status>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card mat-app-background" [ngClass]="{'dark-theme-mode':!isDarkTheme}">
+  <mat-card-header>
+    <mat-card-title>{{'dashboard.customer_status' | translate}}</mat-card-title>
+    </mat-card-header>
+  <mat-card-content>
+    <app-customer-status></app-customer-status>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card class="example-card mat-app-background" [ngClass]="{'dark-theme-mode':!isDarkTheme}">
+  <mat-card-header>
+    <mat-card-title>{{'dashboard.happiness_meter' | translate}}</mat-card-title>
+    </mat-card-header>
+  <img class="smiley" width="20" height="180" [src]="smileyLogo" alt="Smiley"> 
+  <mat-card-content>
+    <app-happiness-meter></app-happiness-meter>
+  </mat-card-content>
+</mat-card>

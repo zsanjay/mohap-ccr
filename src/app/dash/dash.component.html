@@ -1,0 +1,42 @@
+
+  <div class="grid-container"> 
+  
+  <h1 class="mat-h1 heading">{{ 'dashboard.title' | translate }}</h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Mini Cards-->
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+      [rowspan]="( cardLayout | async )?.miniCard?.rows">
+      <div class="mini">
+      <app-card [title]=" 'dashboard.avg_waiting_time' | translate"><app-average-waiting-time></app-average-waiting-time></app-card>
+    </div>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+    [rowspan]="( cardLayout | async )?.miniCard?.rows">
+    <div class="mini">
+    <app-card [title]=" 'dashboard.avg_transaction_time' | translate"><app-average-transaction-time></app-average-transaction-time></app-card>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+  [rowspan]="( cardLayout | async )?.miniCard?.rows">
+  <div class="big">
+  <app-card [title]=" 'dashboard.SAWPD' | translate" [viewAll] = "true" [viewRect] = "true" [activeLink]="'served'"><app-served-and-waiting-per-department></app-served-and-waiting-per-department></app-card>
+  </div>
+</mat-grid-tile>
+     <!--Table-->
+     <mat-grid-tile [colspan]="( cardLayout | async )?.table?.cols" [rowspan]="( cardLayout | async )?.table?.rows">
+       <div class="mini">
+      <app-card [title]=" 'dashboard.branches' | translate" [viewAll] = "true" [displayContents] = "true" [activeLink]="'branches'"><app-branches></app-branches></app-card>
+    </div>
+    </mat-grid-tile>
+    <!--Charts-->
+   <mat-grid-tile  [colspan]="( cardLayout | async )?.miniCard?.cols"
+    [rowspan]="( cardLayout | async )?.miniCard?.rows">
+    <div class="big">
+    <app-card [title]=" 'dashboard.peak_hours' | translate" [viewAll] = "true" [viewPeak]="true" [activeLink]="'peak'"><app-peak-hours></app-peak-hours></app-card>
+    </div>
+  </mat-grid-tile>    
+  </mat-grid-list>
+
+ </div>
+
+ 

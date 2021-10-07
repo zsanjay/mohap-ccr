@@ -1,0 +1,134 @@
+.sub-container{
+    background-color: white;
+     border-radius: 20px;
+    padding: 15px 20px 150px 20px;
+  }
+  
+  table {
+      width: 100%;
+    }
+
+.container{
+     margin: 25px;
+    }
+
+td.mat-cell{
+      border-bottom-style: none;
+    }
+    
+th.mat-header-cell{
+      border-bottom-style: none;
+    }
+
+.mat-row {
+      height: auto;
+      }
+      
+.mat-cell {
+        padding: 0px 1px 1px 0;
+      } 
+
+.days{
+    text-align: center;
+}
+
+th.mat-header-cell {
+    text-align: center;
+}
+
+.card-container{
+  display: inline-flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.card-div{
+    width: 60%;
+    margin-left: 50px;
+    direction: ltr;
+    margin-right: 80px;
+}
+
+.mat-col-levelDefault {
+    left: 80px !important;
+    z-index: 2 !important;
+}
+
+.table-section{
+    overflow: auto;
+}
+    
+.table-section::-webkit-scrollbar {
+    display: none;
+} 
+
+  .mat-cell{
+    font: 15px "Helvetica", Arial;
+    text-align: center;
+    width: 6%;
+  }
+
+  .mat-elevation-z8{
+    box-shadow: none;
+  }
+  
+   th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding-left: 0px !important;
+}  
+  th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-right: 0px !important;
+}
+
+::ng-deep .mat-sort-header-container {
+    justify-content: center;
+  }
+
+   th.mat-header-cell, td.mat-footer-cell {
+    padding: 24px !important;
+    border-bottom-width: 0px;
+    border-bottom-style: solid;
+}
+  
+h1{
+  font: 27px "Helvetica" bold;
+  text-align: center;
+  display: flow-root;
+  color: #5E5C5B;
+  font-weight: 400;
+}
+
+.lighter-pink{
+  background-color: #FAE6CB;
+}
+
+.light-pink{
+  background-color: #F5CCBB;
+}
+
+.grey{
+  background-color: #EEEEEE;
+}
+
+.red{
+  background-color: #9A1825;
+}
+
+.dark-pink{
+  background-color: #E9808D;
+}
+
+.light-yellow{
+  background-color: #FFFED9;
+}
+
+.heading{
+  color: #646463;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font:55px "Helvetica";
+}
+
+/* ::ng-deep .mat-card-header-text{
+  text-align: center;
+} */
+

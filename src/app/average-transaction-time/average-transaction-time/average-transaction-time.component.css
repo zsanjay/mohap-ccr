@@ -1,0 +1,72 @@
+#heading li h3 { 
+	font: 12px "Helvetica", Arial;
+    font-weight: bold;
+} 
+
+#heading {
+    list-style: none;
+    padding: 0px 10px 0px 10px;
+}
+
+.mat-progress-bar{
+    border-radius:10px; 
+    height:5px;
+} 
+
+::ng-deep .mat-progress-bar-buffer {
+    background: white;
+}
+
+::ng-deep .mat-progress-bar {
+    border-radius: 2px;
+}
+.progress-bar{
+    background-color: oldlace;
+}
+.card-title{
+	font-size: 40px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    display: flex;
+    color:#E33A23;
+    }
+   
+  .minute{
+    font-size: 30px;
+    color: black;
+    font-weight: lighter;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .show_low{
+	font-size: 12px;
+    color: black;
+    font-weight: 300;
+    font-style: normal;
+    }
+
+	.show_high{
+	font-size: 12px;
+    color: black;
+    font-weight: 300;
+    font-style: normal;
+	}
+
+	.arrow_d{
+		font-size: 30px;
+		color: #38AE3D;
+		font-weight: bolder;
+
+	}
+
+	.arrow_u{
+		font-size: 30px;
+		color: #E33A23;
+		font-weight: bolder;
+	}
+
+    .card-content{
+        margin-top: 15px;
+    }

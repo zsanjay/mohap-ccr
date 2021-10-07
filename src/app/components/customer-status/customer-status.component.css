@@ -1,0 +1,17 @@
+.card-body {
+    display: flex;
+  }
+  
+  .col {
+    padding: 8px;
+  }
+  
+  .border-line {
+    border-right: 1px solid #000;
+    height: 50px;
+  }
+
+  .title{
+    font-size: 0.6rem;
+    font-weight: 500;
+  }

@@ -1,0 +1,20 @@
+
+  .card-title{
+	font-size: 50px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    float: left;
+    color:#38AE3D;
+    }
+
+      
+      .col {
+        padding: 5px;
+      }
+      
+       .border-line {
+        border-right: 1px solid #000;
+        height: 50px;
+        margin-top: 10px;
+      } 

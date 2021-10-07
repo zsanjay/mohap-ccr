@@ -1,0 +1,39 @@
+<div class="container">
+    <form>
+        <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+        <select id="region" #region [(ngModel)]="selectedRegion" name="region" (change)="onRegionChange(region.value)">
+            <option *ngFor="let region of regions" [value]="region.id">{{region.name}}</option>
+        </select>
+
+        <select id="branch" #branch [(ngModel)]="selectedBranch" name="branch" (change)="onBranchChange(branch.value)">
+            <option [value]="0">All Hospital</option>
+            <option *ngFor="let branch of branches" [value]="branch.id">{{branch.name}}</option>
+        </select>
+
+        <mat-form-field  appearance="fill">
+            <mat-label>Start date</mat-label>
+            <input #startInput matInput [matDatepicker]="pickerStartDate" [(ngModel)]="startDate" [ngModelOptions]="{standalone: true}" (dateChange)="onStartDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="pickerStartDate">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #pickerStartDate></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field  appearance="fill">
+            <mat-label>End date</mat-label>
+            <input #endInput matInput [matDatepicker]="pickerEndDate" [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}" (dateChange)="onEndDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="pickerEndDate">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #pickerEndDate></mat-datepicker>
+          </mat-form-field>
+
+    </form>
+</div>
+
+<div class="container-2">
+    <div class="text">*Others comes under ticket removed by</div> 
+    <div class="text">customer/ end by publish force logout etc</div>
+</div>
+

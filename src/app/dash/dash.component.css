@@ -1,0 +1,71 @@
+.grid-container {
+  margin: 10px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  right: 5px;
+  bottom: 1px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+
+.heading{
+  font-size: 40px;
+  font-weight: bold;
+  color: #666;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 15px;
+}
+
+.nav-right {
+  float: right;
+  min-height: 100px;
+  box-sizing: border-box;
+  background-color: white;
+ 
+}
+
+
+.fixed-plugin {
+  position: fixed;
+  right: 0;
+  width: 64px;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1031;
+  border-radius: 8px 0 0 8px;
+  text-align: center;
+  top: 130px;
+}
+
+.big{
+  position: absolute;
+    top: 0px;
+    left: -14px;
+    right: -5px;
+    bottom: 0px;
+    border-radius: 20px;
+    padding: 0px;
+}
+
+.mini{
+  position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 30px;
+    bottom: 0px;
+    border-radius: 20px;
+    padding: 0px;
+}

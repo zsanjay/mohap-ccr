@@ -1,0 +1,41 @@
+.container{
+    /* justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    display: flex; */
+    position:absolute;                 
+    bottom: 180px;
+    right: 130px;
+
+}
+
+  .btn-holder{
+    display: grid;
+}
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+button{
+    margin-bottom: 10px;
+    border-radius: 30px;
+    width: 160px!important;
+}
+.served{
+    background-color:#4A96E0;
+    color: white;
+}
+
+.waiting{
+    background-color:#5B4CA4;
+    color: white;
+}
+
+.no-shows{
+    background-color:#E76242;
+    color: white;
+}
+
+ 

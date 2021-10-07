@@ -1,0 +1,22 @@
+.peak-card {
+border-radius: 20px;
+width: 100%;
+display: inline-block;
+height: 80px;
+ }
+
+ .peak-date{
+    border-radius: 20px;
+    width: 125%;
+    display: inline-block;
+    height: 80px;
+     }
+
+ .card-title{
+    font: 14px Helvetica;
+    color : #5E5C5B;
+ }
+
+ .card-header{
+   text-align: center;
+ }

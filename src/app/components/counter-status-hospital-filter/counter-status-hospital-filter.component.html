@@ -1,0 +1,10 @@
+<div class="container">
+    <form>
+        <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+        <select id="region" #region [(ngModel)]="selectedRegion" name="region" (change)="onRegionChange(region.value)">
+            <option *ngFor="let region of regions" [value]="region.id">{{region.name}}</option>
+        </select>
+
+    </form>
+</div>

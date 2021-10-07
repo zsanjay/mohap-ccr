@@ -1,0 +1,159 @@
+{
+	"dashboard": {
+		"SAWPD": "يخدم وينتظر لكل خدمة", 
+		"peak_hours": " ساعات الذروة ", 
+		"abu": " أبو ظبي ",
+		"ajman": " عجمان ", 
+		"avg_transaction_time": " متوسط وقت المعاملة ", 
+		"avg_trt_time": " متوسط وقت المعاملة ", 
+		"avg_transaction_time_hospital": " متوسط وقت المعاملة -", 
+		"avg_waiting_time": " متوسط وقت الانتظار ", 
+		"avg_wt_time": " متوسط وقت الانتظار ", 
+		"avg_waiting_time_hospital": " متوسط وقت الانتظار - ", 
+		"b": " ب ", 
+		"branches": " الفروع ", 
+		"c": " ج ", 
+		"closed": " مغلق ", 
+		"counter_status": " حالة العداد ", 
+		"counters": " عدادات ", 
+		"customer_status": " حالة العميل ", 
+		"d": " د ", 
+		"dark": " داكن ", 
+		"dashboard": " لوحة القيادة ", 
+		"dubai": " دبي ", 
+		"happiness_meter": " مقياس السعادة ", 
+		"light": " خفيفة ", 
+		"min": " دقيقة ", 
+		"name": " اسم ", 
+		"no_show": " لا تظهر ", 
+		"no_shows": " لايظهر ", 
+		"open": " افتح ", 
+		"ras_al": " رأس الخيمة ", 
+		"served": " خدم ", 
+		"served_per_emirates": " يخدم في الإمارات ", 
+		"sharjah": " الشارقة ", 
+		"show_high": " مشاهدة عالية ", 
+		"show_low": " تظهر منخفضة ", 
+		"t": " تي ", 
+	
+		"ticket_status": " حالة التذكرة ", 
+	
+		"title": "MOHAP -  جميع مستشفيات الإمارات ", 
+	
+		"trans_time": " وقت المعاملة ", 
+	
+		"waiting": " في انتظار ", 
+	
+		"waiting_time": " وقت الانتظار ", 
+	
+		"ar": " عربى ", 
+		"en" : "English",
+		"choose_mode": " اختر الوضع ", 
+	
+		"choose_lang": " اختر اللغة ", 
+	
+		"view_all": " مشاهدة الكل ", 
+	
+		"open_counters": " عدادات مفتوحة ", 
+	
+		"closed_counters": " عدادات مغلقة ", 
+	
+		"filter": " منقي ", 
+	
+		"waiting_customers": " الزبائن المنتظرين ", 
+	
+		"served_customers": " العملاء المخدومين ", 
+	
+		"dept_queues": " الإدارات / قائمة الانتظار ", 
+	
+		"ticket_no": " تذكرة رقم ", 
+	
+		"total_waiting_time": " إجمالي وقت الانتظار ", 
+	
+		"total_trt_time": " إجمالي وقت المعاملة ", 
+	
+		"staff_name": " اسم الموظفين ", 
+	
+		"served_time": " وقت التقديم ", 
+	
+		"total_time": " الوقت الكلي ", 
+	
+		"type": " اكتب ", 
+	
+		"others": " الآخرين ", 
+	
+		"emirates": " الإمارات ", 
+	
+		"emirates-name": " اسم الإمارات ", 
+	
+		"hospital_name": " اسم المستشفى ", 
+	
+		"departments": " الأقسام ", 
+	
+		"status": " الحالة ", 
+	
+		"total-counters": " مجموع العدادات ", 
+	
+		"open-counters": " عدادات مفتوحة ", 
+	
+		"closed-counters": " عدادات مغلقة ", 
+	
+		"counter-name": " اسم العداد ", 
+	
+		"counter": " يعداد ", 
+	
+		"staff": " العاملين ", 
+	
+		"work-profile": " الملف الشخصي للعمل ", 
+		"service": " خدمات ", 
+		"trt-time": " وقت المعاملة ", 
+		"peak-data": " بيانات الذروة " ,
+		"one" : "1 - 2",
+		"two" : "2 - 3",
+		"three" : "3 - 4",
+		"four" : "4 - 5",
+		"five" : "5 - 6",
+		"six" : "6 - 7",
+		"seven" : "7 - 8",
+		"eight" : "8 - 9",
+		"nine" : "9 - 10",
+		"ten" : "10 - 11",
+		"eleven" : "11 - 12",
+		"twelve" : "12 - 13",
+		"thirteen" : "13 - 14",
+		"fourteen" : "14 - 15",
+		"fifteen" : "15 - 16",
+		"sixteen" : "16 - 17",
+		"seventeen" : "17 - 18",
+		"eighteen" : "18 - 19",
+		"nineteen" : "19 - 20",
+		"twenty" : "20 - 21",
+		"twenty-one" : "21 - 22",
+		"twenty-two" : "22 - 23",
+		"twenty-three" : "23 - 24",
+		"one-am" : "1 AM",
+		"two-am" : "2 AM",
+		"three-am" : "3 AM",
+		"four-am" : "4 AM",
+		"five-am" : "5 AM",
+		"six-am" : "6 AM",
+		"seven-am" : "7 AM",
+		"eight-am" : "8 AM",
+		"nine-am" : "9 AM",
+		"ten-am" : "10 AM",
+		"eleven-am" : "11 AM",
+		"twelve-am" : "12 AM",
+		"one-pm" : "1 PM",
+		"two-pm" : "2 PM",
+		"three-pm" : "3 PM",
+		"four-pm" : "4 PM",
+		"five-pm" : "5 PM",
+		"six-pm" : "6 PM",
+		"seven-pm" : "7 PM",
+		"eight-pm" : "8 PM",
+		"nine-pm" : "9 PM",
+		"ten-pm" : "10 PM",
+		"eleven-pm" : "11 PM",
+		"service-points" : "نقاط الخدمة"
+	}
+}

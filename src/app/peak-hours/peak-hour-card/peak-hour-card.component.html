@@ -1,0 +1,10 @@
+<mat-card [ngClass]="className == 'peak-date' ? 'peak-date' : 'peak-card'"> 
+    <div class="card-header">
+        <div class="card-title">
+            {{title}}
+        </div>
+      </div>
+    <mat-card-content>
+        <ng-content></ng-content>
+    </mat-card-content>
+ </mat-card>

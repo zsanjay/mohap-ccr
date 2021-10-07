@@ -1,0 +1,25 @@
+
+<div>
+    <canvas id="counterStatus"></canvas>
+ <div *ngIf="dataAvailable == true" class="row" style="display: inline-flex;justify-content: center;">
+    <div class="col">
+      <div class="row justify-content-center" >
+        <span>{{'dashboard.open' | translate}}</span>
+      </div>
+      <div class="row justify-content-center" style="width: 80px;">
+        <div class="col"><a [routerLink]="[ '/' , { outlets: { primary: ['counter-status'], secondRouter: ['counter-status-hospital-filter'] } }]" style="text-decoration: none;"><span style="color: #38AE3D; font-size: 30px; font-weight: bold;">{{counterData.open}}</span></a></div>
+      </div>
+    </div>
+  
+  <div class="border-line"></div>
+  
+    <div class="col">
+      <div class="row justify-content-center">
+        <span>{{'dashboard.closed' | translate}}</span>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col"><a [routerLink]="[ '/' , { outlets: { primary: ['counter-status'], secondRouter: ['counter-status-hospital-filter'] } }]" style="text-decoration: none;"><span style="color: #E33A23; font-size: 30px; font-weight: bold;">{{counterData.closed}}</span></a></div>
+      </div>
+    </div>
+  </div>
+</div>

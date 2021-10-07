@@ -1,0 +1,37 @@
+.container{
+    padding: 0px 50px 0px 30px;
+}
+
+h4{
+    font: 22px "Helvetica" , bold;
+    color: #A1A09E;
+}
+
+select{
+    
+    width: 95%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #808080;
+    height: 30px;
+    outline: none;
+    background: #F5F6F9;
+}
+
+.container-2{
+    position:absolute;                 
+    bottom: 200px;
+    right: 120px;
+}
+
+.btn-holder{
+    /* display: grid; */
+    width: 215px;
+    height: 40px;
+    border: 2px solid red;
+    border-radius: 50px;
+}
+
+.show-live{
+    color: red;
+}

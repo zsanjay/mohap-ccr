@@ -1,0 +1,131 @@
+
+<div class="container">
+
+    <div class="heading">
+   <span style="margin-left: 15px;">{{ 'dashboard.ticket_status' | translate }}</span>
+    </div>
+    <div class="sub-container">
+            <!-- <div class="tab">
+            <button id="waitingTab" class="tablinks" (click)="openPanel($event, 'Waiting')"><span class="title">{{ 'dashboard.waiting' | translate }}</span></button>
+            <button id="servedTab" class="tablinks" (click)="openPanel($event, 'Served')"><span class="title">{{ 'dashboard.served' | translate }}</span></button>
+            <button id="othersTab" class="tablinks" (click)="openPanel($event, 'Others')"><span class="title">{{ 'dashboard.others' | translate }}</span></button>
+          </div>  -->
+          
+          <ul class="nav tab justify-content-center">
+            <li class="nav-item">
+              <button id="waitingTab" class="tablinks" (click)="openPanel($event, 'Waiting')"><span class="title">{{ 'dashboard.waiting' | translate }}</span></button>
+            </li>
+            <li class="nav-item">
+              <button id="servedTab" class="tablinks" (click)="openPanel($event, 'Served')"><span class="title">{{ 'dashboard.served' | translate }}</span></button>
+            </li>
+            <li class="nav-item">
+              <button id="othersTab" class="tablinks" (click)="openPanel($event, 'Others')"><span class="title">{{ 'dashboard.others' | translate }}</span></button>
+            </li>
+          </ul>
+
+          <div id="Waiting" class="tabcontent">
+            <div class="mat-table-container">
+            <table mat-table [dataSource]="dataSourceWaiting" #WSort="matSort" (matSortChange)="sortWaitingData($event)" class="mat-elevation-z8" matSort>
+              
+                <!-- Ticket Column -->
+                <ng-container matColumnDef="ticket">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.ticket_no' | translate}}</th>
+                    <td mat-cell *matCellDef="let row"><span>{{row.ticketId}}</span></td>
+                  </ng-container>
+
+                <!-- Queue Name Column -->
+                <ng-container matColumnDef="queueName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Queue Name' | translate}}</th>
+                  <td mat-cell *matCellDef="let row"><span>{{queueName}}</span></td>
+                </ng-container>
+              
+                <!-- Waiting Time Column -->
+                <ng-container matColumnDef="wtTime">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting_time' | translate}}</th>
+                  <td mat-cell *matCellDef="let row"><span [ngStyle]="getTimeColor(row.waitingTime)">{{getWaitingTime(row.waitingTime)}}</span></td>
+                </ng-container>
+              
+                <!-- Total Waiting Time Column -->
+                <ng-container matColumnDef="totalWtTime">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.total_waiting_time' | translate}}</th>
+                  <td mat-cell *matCellDef="let row"><span [ngStyle]="getTimeColor(row.totalWaitingTime)">{{getWaitingTime(row.totalWaitingTime)}}</span></td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsWaiting; sticky:true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsWaiting;"></tr>
+              </table>
+            </div>
+          </div>
+          
+          <div id="Served" class="tabcontent">
+            <div class="mat-table-container">
+            <table mat-table [dataSource]="dataSourceServed" #SSort="matSort" (matSortChange)="sortServedData($event)" class="mat-elevation-z8" matSort>
+              
+              <!-- Ticket Column -->
+              <ng-container matColumnDef="ticket">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.ticket_no' | translate}}</th>
+                  <td mat-cell *matCellDef="let row"><span>{{row.ticket}}</span></td>
+                </ng-container>
+
+                 <!-- Staff Name Column -->
+              <ng-container matColumnDef="staffName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.staff_name' | translate}}</th>
+                <td mat-cell *matCellDef="let row"> {{row.staffName}} </td>
+              </ng-container>
+            
+              <!-- Waiting Time Column -->
+              <ng-container matColumnDef="wtTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting_time' | translate}}</th>
+                <td mat-cell *matCellDef="let row"> <span [ngStyle]="getTimeColor(row.waitingTime)">{{getWaitingTime(row.waitingTime)}}</span> </td>
+              </ng-container>
+
+              <!-- Served Time Column -->
+              <ng-container matColumnDef="servedTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.served_time' | translate}}</th>
+                <td mat-cell *matCellDef="let row"><span>{{getWaitingTime(row.transactionTime)}}</span></td>
+              </ng-container>
+            
+              <!-- Total Time Column -->
+              <ng-container matColumnDef="totalTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.total_time' | translate}}</th>
+                <td mat-cell *matCellDef="let row"><span [ngStyle]="getTimeColor(row.totalTime)">{{getWaitingTime(row.totalTime)}}</span></td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsServed; sticky:true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsServed;"></tr>
+            </table>
+            </div>
+          </div>
+          
+          <div id="Others" class="tabcontent">
+            <div class="mat-table-container">
+            <table mat-table [dataSource]="dataSourceOthers" #OSort="matSort" (matSortChange)="sortOthersData($event)" class="mat-elevation-z8" matSort>
+              
+              <!-- Ticket Column -->
+              <ng-container matColumnDef="ticket">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.ticket_no' | translate}}</th>
+                  <td mat-cell *matCellDef="let row"><span>{{row.ticket}}</span></td>
+                </ng-container>
+
+                <!-- Type Column -->
+              <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.type' | translate}}</th>
+                <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+              </ng-container>
+            
+              <!-- Waiting Time Column -->
+              <ng-container matColumnDef="wtTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'dashboard.waiting_time' | translate}}</th>
+                <td mat-cell *matCellDef="let row"><span [ngStyle]="getTimeColor(row.waitingTime)">{{getWaitingTime(row.waitingTime)}}</span></td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumnsOthers; sticky:true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumnsOthers;"></tr>
+            </table>
+            </div>
+          </div>
+
+    </div>   
+  </div>
+  
+  

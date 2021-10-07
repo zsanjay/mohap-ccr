@@ -1,0 +1,16 @@
+<div class="container">
+    <form>
+        <h4>{{ 'dashboard.filter' | translate }}</h4>
+
+        <select id="branch" #branch [(ngModel)]="selectedBranch" name="branch" (change)="onBranchChange(branch.value)">
+        <option *ngFor="let branch of branches" [value]="branch.id">{{branch.name}}</option>
+        </select>
+
+      </form>
+
+      <div *ngIf="showLive" class="container-2">
+        <button (click)="showLiveStatus();" mat-raised-button class="btn-holder"><span class="show-live">Show Live</span></button>
+      </div>
+      
+</div>
+
